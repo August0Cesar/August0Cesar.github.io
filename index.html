@@ -45,7 +45,7 @@
                     window.URL.revokeObjectURL(url);
                     alert('your file has downloaded!'); // or you know, something with better UX...
                 })
-                .catch(() => alert('oh no!'));
+                .catch((err) => alert(err));
         }
     </script>
     
