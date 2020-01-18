@@ -20,6 +20,36 @@
     <p>Click the button to open a new browser window.</p>
 
 <button onclick="myFunction()">Try it</button>
+    <h3>Teste Download</h3>
+    <p>Usando javaScript Puro</p>
+    <button onclick="fazDownloadJavascript()">JAVA SCRIPT </button>
+
+    <script>
+
+        //metodo resposavel por fazer Download
+        function fazDownloadJavascript(filename) {
+            console.log("Iniciando Download");
+            
+            fetch('https://sults-bucket.s3.amazonaws.com/treinamento/DiscoVirtualDiretorio/1/alsjdalksdjasda%C3%A7lshnaljkjfnklabvlandmsak.cm_ksa.njasdnksaa.dnsa.png')
+                .then(resp => resp.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    console.log(url);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    // the filename you want
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    alert('your file has downloaded!'); // or you know, something with better UX...
+                })
+                .catch(() => alert('oh no!'));
+        }
+    </script>
+    
+    
 
 <script>
 function myFunction() {
