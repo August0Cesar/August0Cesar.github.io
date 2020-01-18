@@ -30,7 +30,7 @@
         function fazDownloadJavascript(filename) {
             console.log("Iniciando Download");
             
-            fetch('https://sults-bucket.s3.amazonaws.com/treinamento/DiscoVirtualDiretorio/1/alsjdalksdjasda%C3%A7lshnaljkjfnklabvlandmsak.cm_ksa.njasdnksaa.dnsa.png')
+            fetch('https://august0cesar.github.io/index.html')
                 .then(resp => resp.blob())
                 .then(blob => {
                     const url = window.URL.createObjectURL(blob);
@@ -45,7 +45,10 @@
                     window.URL.revokeObjectURL(url);
                     alert('your file has downloaded!'); // or you know, something with better UX...
                 })
-                .catch((err) => alert(err));
+                .catch((err) => {
+                alert(err);
+                console.log(err);
+            });
         }
     </script>
     
