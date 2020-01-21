@@ -11,30 +11,38 @@
     
     <label for="avatar">Choose a profile picture:</label>
     
-    <a href="https://sults-bucket-test.s3.amazonaws.com/treinamento/ExpansaoPessoa/9/carnaval.jpg" download>
+    <a href="https://sults-bucket-test.s3.amazonaws.com/treinamento/ExpansaoPessoa/9/carnaval.jpg" download="tt">
         Teste Direto
     </a>
+    <br>
     <br>
     <a href="/index.html" download>
         Teste Index.html
     </a>
 
     <br>
-<input type="file"
-       id="avatar" name="avatar"
-       accept="image/png, image/jpeg" capture="camera" >
+
     
     <br/>
     <a href="https://www.w3schools.com" target="_blank">Visit W3Schools</a>
     <br/>
     <p>Click the button to open a new browser window.</p>
-
-<button onclick="myFunction()">Try it</button>
+    
+    <br>
+    <button onclick="callWindowOpen()">Window open</button>
+    
+    <br>
+    
     <h3>Teste Download</h3>
     <p>Usando javaScript Puro</p>
+    
+    <br>
     <button onclick="fazDownloadJavascript()">JAVA SCRIPT </button>
 
     <script>
+        function callWindowOpen() {
+            winedow.open('"https://www.w3schools.com','_blank');
+        }
 
         //metodo resposavel por fazer Download
         function fazDownloadJavascript(filename) {
