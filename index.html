@@ -5,77 +5,24 @@
     <meta charset="utf-8">
     <title>Título da página</title>
     <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            rquestApiHeroku();
+
+            function rquestApiHeroku() {
+                $.get("https://appvalmont.herokuapp.com/",(data,status)=>{
+                    console.log("complete request.");
+                });
+            }
+        });
+    </script>
 </head>
 <body>
 
+    <div id="div1">
+        <h2>Augusto César da Cunha Matos</h2>
+    </div>
     
-    <label for="avatar">Choose a profile picture:</label>
-    
-    <a href="https://sults-bucket-test.s3.amazonaws.com/treinamento/ExpansaoPessoa/9/carnaval.jpg" download="tt">
-        Teste Direto
-    </a>
-    <br>
-    <br>
-    <a href="/index.html" download>
-        Teste Index.html
-    </a>
-
-    <br>
-
-    
-    <br/>
-    <a href="https://www.w3schools.com" target="_blank">Visit W3Schools</a>
-    <br/>
-    <p>Click the button to open a new browser window.</p>
-    
-    <br>
-    <button onclick="callWindowOpen()">Window open</button>
-    
-    <br>
-    
-    <h3>Teste Download</h3>
-    <p>Usando javaScript Puro</p>
-    
-    <br>
-    <button onclick="fazDownloadJavascript()">JAVA SCRIPT </button>
-
-    <script>
-        function callWindowOpen() {
-            window.open('https://www.w3schools.com','_blank');
-        }
-
-        //metodo resposavel por fazer Download
-        function fazDownloadJavascript(filename) {
-            console.log("Iniciando Download");
-            
-            fetch('https://sults-bucket.s3.amazonaws.com/treinamento/DiscoVirtualDiretorio/1/alsjdalksdjasda%C3%A7lshnaljkjfnklabvlandmsak.cm_ksa.njasdnksaa.dnsa.png')
-                .then(resp => resp.blob())
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    console.log(url);
-                    const a = document.createElement('a');
-                    a.style.display = 'none';
-                    a.href = url;
-                    // the filename you want
-                    a.download = filename;
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                    alert('your file has downloaded!'); // or you know, something with better UX...
-                })
-                .catch((err) => {
-                alert(err);
-                console.log(err);
-            });
-        }
-    </script>
-    
-    
-
-<script>
-function myFunction() {
-  window.open("https://www.w3schools.com");
-}
-</script>
 </body>
 </html>
