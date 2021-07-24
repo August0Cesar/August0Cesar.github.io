@@ -17,12 +17,19 @@
             }
         });
     </script>
+    
 </head>
 <body>
 
     <div id="div1">
         <h2>Augusto César da Cunha Matos</h2>
+        <button onClick="print()">Call FLutter Webview</button>
     </div>
-    
+    <script>
+        function print(){
+            Print.postMessage('Hello World being called from Javascript code');
+        }
+        
+    </script>
 </body>
 </html>
