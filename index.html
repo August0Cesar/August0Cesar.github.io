@@ -62,6 +62,10 @@
 
 
     <script>
+        function isActiveWebView(){
+            return "Yes! I'm active."
+        }
+        
         function start_recorder() {
             console.log("Inciando Gravação");
             AudioJSChannel.postMessage('START_RECORD');
