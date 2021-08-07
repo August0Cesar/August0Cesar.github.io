@@ -59,13 +59,18 @@
         </div>
     </div>
 
+    <div class="container" style="background-color: skyblue;">
+        <h2>Navegar para outra tela</h2>
+        <a href="other.html"> Other screen</a>
+    </div>
+
 
 
     <script>
         function isActiveWebView(){
             return "Yes! I'm active."
         }
-        
+
         function start_recorder() {
             console.log("Inciando Gravação");
             AudioJSChannel.postMessage('START_RECORD');
