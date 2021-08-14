@@ -67,10 +67,11 @@
 
 
     <script>
-        function isActiveWebView(){
-            return "Yes! I'm active."
-        }
+        setInterval(function(){ alert("Hello"); }, 3000);
 
+
+
+        /*****Funções JS para chamar o Flutter*****/
         function start_recorder() {
             console.log("Inciando Gravação");
             AudioJSChannel.postMessage('START_RECORD');
@@ -90,12 +91,37 @@
             Print.postMessage('Hello World being called from Javascript code');
         }
 
-        function alertValueFromFlutter(value) {
+        function findStatusRecording(){
+            console.log("Tocando Gravação");
+            AudioJSChannel.postMessage('STATUS_RECORD');
+        }
+        
+
+        /*****Funções chamadas pelo Flutter*****/
+
+        //função chamada pelo Flutter pra saber se ainda esta na pagina de gravar
+        function isActiveWebViewFromFlutter(){
+            return "Yes! I'm active."
+        }
+
+        //função chamada pelo Flutter quando da algun erro na gravação
+        function onErrorFromFlutter(errorMessage){
+            console.log(errorMessage);
+        }
+
+        //função chamada pelo Flutter quando terminou de tirar photo
+        function onReceivedImageFromFlutter(value) {
             console.log(value);
-            var divNova = document.createElement("div");
+            var divNova = document.getElementById("div1").createElement("div");
             divNova.innerHTML = value;
             divNova.appendChild(value);
         }
+        
+        //função chamada pelo Flutter para retornar status da gravação
+        function onRecivedStatusRecording(statusRecording){
+            console.log(statusRecording)
+        }
+       
     </script>
 </body>
 
