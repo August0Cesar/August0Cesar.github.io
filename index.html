@@ -73,17 +73,14 @@
 
         /*****Funções JS para chamar o Flutter*****/
         function start_recorder() {
-            console.log("Inciando Gravação");
             AudioJSChannel.postMessage('START_RECORD');
         }
 
         function stop_recorder() {
-            console.log("Parando Gravação");
             AudioJSChannel.postMessage('STOP_RECORD');
         }
 
         function play_recorder() {
-            console.log("Tocando Gravação");
             AudioJSChannel.postMessage('PLAY_RECORD');
         }
 
@@ -92,7 +89,6 @@
         }
 
         function findStatusRecording(){
-            console.log("Tocando Gravação");
             AudioJSChannel.postMessage('STATUS_RECORD');
         }
         
