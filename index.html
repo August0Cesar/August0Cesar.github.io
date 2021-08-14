@@ -108,9 +108,10 @@
         //função chamada pelo Flutter quando terminou de tirar photo
         function onReceivedImageFromFlutter(value) {
             console.log(value);
-            var divNova = document.getElementById("div1").createElement("div");
+            div1 = document.getElementById("div1");
+            var divNova = document.createElement("p");
             divNova.innerHTML = value;
-            divNova.appendChild(value);
+            div1.appendChild(divNova);
         }
         
         //função chamada pelo Flutter para retornar status da gravação
