@@ -42,7 +42,7 @@
 
         <div class="row justify-content-md-center">
             <div class="col-md-auto">
-                <span class="material-icons" onclick="start_recorder()">
+                <span class="material-icons" onclick="play()">
                     play_arrow
                 </span>
             </div>
@@ -67,6 +67,7 @@
 
 
     <script>
+        /******Ping Pong Situação******/
         setInterval(function(){ findStatusRecording(); }, 8000);
         //javascript chamando flutter para saber status gravação
         function findStatusRecording(){
@@ -76,8 +77,10 @@
         function onGetSituation(statusRecording){
             console.log("Situation=>  " + statusRecording)
         }
+        /******Ping Pong Situação******/
         
-        setInterval(function(){ findStatuPermission(); }, 3000);
+        
+        /******Ping Pong Permissão******/
         function findStatuPermission(){
             GetPermissionJS.postMessage("{\"onCalback\":\"onGetPermission\"}");
         }
@@ -85,12 +88,40 @@
         function onGetPermission(permission){
             console.log("Permission=>  " + permission)
         }
-
+        /******Ping Pong Permissão******/
+        
+        
+        /******Ping Pong Start Record******/
+        function play(){
+            message = JSON.stringify({"onChecker": "onCheckerPlay", "onError": "OnErrorPlay", "onCalback": "onPlay"})
+            PlayJS.postMessage(message);
+        }
+        function onPlay(isPlay){
+            console.log("Is Play=>  " + isPlay)
+        }
+        function onCheckerPlay(){
+            return "Yes! I'm active."
+        }
+        function OnErrorPlay(errorMessage){
+            console.log("OnErrorPlay=>  " + isPlay)
+        }
+        /******Ping Pong Permissão******/
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         /*****Funções JS para chamar o Flutter*****/
-        function start_recorder() {
-            AudioJSChannel.postMessage('START_RECORD');
-        }
 
         function stop_recorder() {
             AudioJSChannel.postMessage('STOP_RECORD');
