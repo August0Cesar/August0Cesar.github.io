@@ -94,7 +94,7 @@
         /******Ping Pong Start Record******/
         function play(){
             message = JSON.stringify({"onChecker": "onCheckerPlay", "onError": "OnErrorPlay", "onCalback": "onPlay"})
-            PlayJS.postMessage(message);
+            PlayRecorderAudioJS.postMessage(message);
         }
         function onPlay(isPlay){
             console.log("Is Play=>  " + isPlay)
@@ -111,7 +111,7 @@
         /******Ping Pong Stop Record******/
         function stop(){
             message = JSON.stringify({"onSent": "onSent", "onError": "OnErrorSending", "onCalback": "onStop", "sendParameter": {"url": "https://localhost/api"}})
-            PlayJS.postMessage(message);
+            StopAudioRecordJS.postMessage(message);
         }
         function onStop(isStop){
             console.log("Is Stop=>  " + isStop)
