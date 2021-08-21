@@ -67,7 +67,7 @@
 
 
     <script>
-        setInterval(function(){ findStatusRecording(); }, 3000);
+        setInterval(function(){ findStatusRecording(); }, 8000);
         //javascript chamando flutter para saber status gravação
         function findStatusRecording(){
             GetSituationJS.postMessage("{\"onCalback\":\"onGetSituation\"}");
@@ -76,7 +76,15 @@
         function onGetSituation(statusRecording){
             console.log("Situation=>  " + statusRecording)
         }
-
+        
+        setInterval(function(){ findStatuPermission(); }, 3000);
+        function findStatuPermission(){
+            GetPermissionJS.postMessage("{\"onCalback\":\"onGetPermission\"}");
+        }
+        //função chamada pelo Flutter para retornar status de permissao de gravação
+        function onGetPermission(permission){
+            console.log("Permission=>  " + permission)
+        }
 
 
         /*****Funções JS para chamar o Flutter*****/
