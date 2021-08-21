@@ -70,7 +70,7 @@
         setInterval(function(){ findStatusRecording(); }, 3000);
         //javascript chamando flutter para saber status gravação
         function findStatusRecording(){
-            GetSituationJS.postMessage({});
+            GetSituationJS.postMessage("{\"onCalback\":\"onGetSituation\"}");
         }
         //função chamada pelo Flutter para retornar status da gravação
         function onGetSituation(statusRecording){
