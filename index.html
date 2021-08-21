@@ -68,6 +68,14 @@
 
     <script>
         setInterval(function(){ findStatusRecording(); }, 3000);
+        //javascript chamando flutter para saber status gravação
+        function findStatusRecording(){
+            GetSituationJS.postMessage({});
+        }
+        //função chamada pelo Flutter para retornar status da gravação
+        function onGetSituation(statusRecording){
+            console.log("Situation=>  " + statusRecording)
+        }
 
 
 
@@ -88,9 +96,7 @@
             Print.postMessage('Hello World being called from Javascript code');
         }
 
-        function findStatusRecording(){
-            AudioJSChannel.postMessage('STATUS_RECORD');
-        }
+        
         
 
         /*****Funções chamadas pelo Flutter*****/
