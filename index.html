@@ -47,7 +47,7 @@
                 </span>
             </div>
             <div class="col-md-auto">
-                <span class="material-icons" onclick="stop_recorder()">
+                <span class="material-icons" onclick="stop()">
                     stop
                 </span>
             </div>
@@ -103,10 +103,26 @@
             return "Yes! I'm active."
         }
         function OnErrorPlay(errorMessage){
-            console.log("OnErrorPlay=>  " + isPlay)
+            console.log("OnErrorPlay=>  " + errorMessage)
         }
-        /******Ping Pong Permissão******/
+        /******Ping Pong Start Record******/
         
+        
+        /******Ping Pong Stop Record******/
+        function stop(){
+            message = JSON.stringify({"onSent": "onSent", "onError": "OnErrorSending", "onCalback": "onStop", "sendParameter": {"url": "https://localhost/api"}})
+            PlayJS.postMessage(message);
+        }
+        function onStop(isStop){
+            console.log("Is Stop=>  " + isStop)
+        }
+        function onSent(isSent){
+            console.log("Is Sent=>  " + isSent)
+        }
+        function OnErrorSending(errorMessage){
+            console.log("OnErrorSending=>  " + errorMessage)
+        }
+        /******Ping Pong Stop Record******/
         
         
         
@@ -123,13 +139,13 @@
 
         /*****Funções JS para chamar o Flutter*****/
 
-        function stop_recorder() {
-            AudioJSChannel.postMessage('STOP_RECORD');
-        }
+//         function stop_recorder() {
+//             AudioJSChannel.postMessage('STOP_RECORD');
+//         }
 
-        function play_recorder() {
-            AudioJSChannel.postMessage('PLAY_RECORD');
-        }
+//         function play_recorder() {
+//             AudioJSChannel.postMessage('PLAY_RECORD');
+//         }
 
         function print() {
             Print.postMessage('Hello World being called from Javascript code');
