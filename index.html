@@ -52,6 +52,14 @@
                 </span>
             </div>
             <div class="col col-lg-2">
+                <span class="material-icons" onclick="cancel()">
+                    play_circle_filled
+                </span>
+                <span class="material-icons-outlined">
+                    close
+                </span>
+            </div>
+            <div class="col col-lg-2">
                 <span class="material-icons" onclick="play_recorder()">
                     play_circle_filled
                 </span>
@@ -123,6 +131,20 @@
             console.log("OnErrorSending=>  " + errorMessage)
         }
         /******Ping Pong Stop Record******/
+        
+        
+        /******Ping Pong Cancel Record******/
+        function cancel(){
+            message = JSON.stringify({"onError": "OnErrorCancel", "onCalback": "onCancel"})
+            CancelAudioRecordJS.postMessage(message);
+        }
+        function onCancel(isCancel){
+            console.log("Is Cancel=>  " + isCancel)
+        }
+        function OnErrorCancel(errorMessage){
+            console.log("OnErrorCancel=>  " + errorMessage)
+        }
+        /******Ping Pong Cancel Record******/
         
         
         
