@@ -59,13 +59,9 @@
             </div>
 
             <div class="col col-lg-2">
-                <span class="material-icons-outlined" onclick="cancel()">
-                    close
+                <span class="material-icons" onclick="cancel()">
+                    cancel
                 </span>
-                
-                <!-- <span class="material-icons-outlined">
-                    close
-                </span> -->
             </div>
         </div>
     </div>
@@ -121,7 +117,8 @@
         
         /******Ping Pong Stop Record******/
         function stop(){
-            message = JSON.stringify({"onSent": "onSent", "onError": "OnErrorSending", "onCalback": "onStop", "sendParameter": {"url": "https://localhost/api"}})
+            message = JSON.stringify({"onSent": "onSent", "onError": "OnErrorSending", "onCalback": "onStop",
+                "sendParameter": {"url": "https://localhost/api", "method": "POST", "token": "aryuqafafhafhr3wahrkhf"}})
             StopAudioRecordJS.postMessage(message);
         }
         function onStop(isStop){
