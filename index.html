@@ -37,6 +37,13 @@
         <h2>Gravador de Áudio</h2>
 
         <div class="row "><!--justify-content-md-center-->
+
+            <div class="col-md-auto">
+                <span class="material-icons" onclick="findStatuPermission()">
+                    Permission
+                </span>
+            </div>
+
             <div class="col-md-auto">
                 <span class="material-icons" onclick="play()">
                     play_arrow
@@ -89,7 +96,8 @@
         }
         //função chamada pelo Flutter para retornar status de permissao de gravação
         function onGetPermission(permission){
-            console.log("Permission=>  " + permission)//TODO -1 aberto(nao solicitado), 0 negado, 1 permitido
+            console.log("Permission=>  " + permission)
+            // TODO -1 aberto(nao solicitado), 0 negado, 1 permitido
         }
         /******Ping Pong Permissão******/
         
