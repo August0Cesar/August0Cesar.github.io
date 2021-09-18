@@ -115,12 +115,12 @@
         function stop(){
             message = JSON.stringify({"onSent": "onSent", "onError": "OnErrorSending", "onCalback": "onStop",
                 "sendParameter": {"url": "https://treinamento.sults.com.br/ordem-servico/interacao/audio", "method": "POST", 
-                "header": JSON.stringify(
+                "header": 
                 {
                     "Param-OrdemServicoInteracao-Id": "829",
                     "cookie": "_ga=GA1.3.856866288.1591936134; S-PRJ_LP_S=1; S-PJ-VM=1; S-ORDSER-Q=1; PROJ_LP_S=1; IMPL-PJ-K-F=1; IMPL-PJ-Q=1; OS-F-A=2; CHK_SUP_VM_TB=1; S-IMPL-PJ-VM=1; S-EXPA-NF-F=ml2otQa5smMAXw9DF4bA5g==; S-VENDA-NF-RESP=Nnz8G5j5hDZIOmgHG5j1jQ==; VENDA-NK-F=MIQBuYjqTxuysXnBrtWiEg==; S-EXPA-NF-RESP=N3nd0zqHk1mfc2zIzB+G4w==; EXP-NK-F=dK9J7rEJ6sfVTyy+Am/Zng==; S-EMP-INT-EMP=IdF8sF0Q9aiAPaElxayEqw==; poseidon_expandeditems=menuform-ordem-servico-mobile%3Amenu-recebido%2Cmenuform-seguranca%3Amenu-list-usuario%2Cmenuform-report%3Amenu-report-responsavel-ganho%2Cmenuform-agenda%3Amenu-origem%2Cmenuform-agenda%3Amenu-compo-adicional%2Cmenuform-agenda%3Amenu-pessoas-principal; empresa=treinamento; JSESSIONID=AF571FDDF9AA5BC2CB1A0C4CC2FC1D6E; S-NAP=YKGggdR/mWudx9Qd1pwHxnjm87tzpfg5H0jHeg07SVQ=; S-ULO=rgXKhi9WU4D9Z2EWFQ+1gg==; S-PTO=PUc17t3CgXosXQcpPWNwoA==; S-CMP=k10Lkgv0NbJ72ogBlPioX18rmVErpmC4; S-PELO=/FP5h5F7gHehClN26QKUTQ==; S-PETO=diF6KYGNfnwYeadaaT8hzkmKijAWuRl5Y6XG3YJJLCnZGZuQ46+AFw==; S-ORDSER=M7qdKl+XvVRReMzUFTPOwQ==",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36"    
-                })
+                }
             }})
             StopAudioRecordJS.postMessage(message);
         }
