@@ -104,8 +104,8 @@
             message = JSON.stringify({"onChecker": "onCheckerPlay", "onError": "OnErrorPlay", "onCalback": "onPlay"})
             PlayRecorderAudioJS.postMessage(message);
             
-            document.getElementById("play").style.display = none;
-            document.getElementById("stop").style.display = 'inline-block';
+            // document.getElementById("play").style.display = none;
+            // document.getElementById("stop").style.display = 'inline-block';
         }
         function onPlay(isPlay){
             console.log("Is Play=>  " + isPlay)
@@ -132,8 +132,8 @@
             }})
             StopAudioRecordJS.postMessage(message);
 
-            document.getElementById("play").style.display = 'inline-block';
-            document.getElementById("stop").style.display = none;
+            // document.getElementById("play").style.display = 'inline-block';
+            // document.getElementById("stop").style.display = none;
         }
         function onStop(isStop){
             console.log("Is Stop=>  " + isStop)
