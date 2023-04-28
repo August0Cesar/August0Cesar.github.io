@@ -27,31 +27,28 @@
 <body>
 
     <style>
-
-        .my_icons{
+        .my_icons {
             font-size: 80px;
-            color:aqua;
+            color: aqua;
         }
-
-
     </style>
     <h1 class="text-center">Gravador de Áudio</h1>
     <div class="container" style="margin-top: 150px;">
 
         <div class="row center"><!--justify-content-md-center-->
 
-            <div class="col-sm" id="stop" ><!-- style="display: none;" -->
+            <div class="col-sm" id="stop"><!-- style="display: none;" -->
                 <span class="material-icons my_icons" onclick="stop()">
                     stop
                 </span>
             </div>
-            
+
             <div class="col-sm" id="play">
                 <span class="material-icons my_icons" onclick="play()">
                     play_arrow
                 </span>
             </div>
-            
+
             <div class="col-sm">
                 <span class="material-icons my_icons" onclick="play_recorder()">
                     play_circle_filled
@@ -65,8 +62,8 @@
             </div>
         </div>
 
-        <div id="contentBase64" style="width: 450px;height: auto;">
-            
+        <div id="contentBase64" style="width: 350px;height: auto;">
+
         </div>
     </div>
 
@@ -78,104 +75,110 @@
 
 
     <script>
+
+        
+
         /******Ping Pong Situação******/
-        setInterval(function(){ findStatusRecording(); }, 8000);
+        setInterval(function () { findStatusRecording(); }, 8000);
         //javascript chamando flutter para saber status gravação
-        function findStatusRecording(){
+        function findStatusRecording() {
             GetSituationJS.postMessage("{\"onCalback\":\"onGetSituation\"}");
         }
         //função chamada pelo Flutter para retornar status da gravação
-        function onGetSituation(statusRecording){
+        function onGetSituation(statusRecording) {
             console.log("Situation=>  " + statusRecording)
         }
         /******Ping Pong Situação******/
-        
-        
+
+
         /******Ping Pong Permissão******/
-        function findStatuPermission(){
+        function findStatuPermission() {
             GetPermissionJS.postMessage("{\"onCalback\":\"onGetPermission\"}");
         }
         //função chamada pelo Flutter para retornar status de permissao de gravação
-        function onGetPermission(permission){
+        function onGetPermission(permission) {
             console.log("Permission=>  " + permission)
             // TODO -1 aberto(nao solicitado), 0 negado, 1 permitido
         }
         /******Ping Pong Permissão******/
-        
-        
+
+
         /******Ping Pong Start Record******/
-        function play(){
-            message = JSON.stringify({"onChecker": "onCheckerPlay", "onError": "OnErrorPlay", "onCalback": "onPlay"})
+        function play() {
+            message = JSON.stringify({ "onChecker": "onCheckerPlay", "onError": "OnErrorPlay", "onCalback": "onPlay" })
             PlayRecorderAudioJS.postMessage(message);
-            
+
             // document.getElementById("play").style.display = none;
             // document.getElementById("stop").style.display = 'inline-block';
         }
-        function onPlay(isPlay){
+        function onPlay(isPlay) {
             console.log("Is Play=>  " + isPlay)
         }
-        function onCheckerPlay(){
+        function onCheckerPlay() {
             return "Yes! I'm active."
         }
-        function OnErrorPlay(errorMessage){
+        function OnErrorPlay(errorMessage) {
             console.log("OnErrorPlay=>  " + errorMessage)
         }
         /******Ping Pong Start Record******/
-        
-        
+
+
         /******Ping Pong Stop Record******/
-        function stop(){
-            message = JSON.stringify({"onSent": "onSent", "onError": "OnErrorSending", "onCalback": "onStop",
-                "sendParameter": {"url": "https://treinamento.sults.com.br/ordem-servico/interacao/audio", "method": "POST", 
-                "header": 
-                {
-                    "Param-OrdemServicoInteracao-Id": "829",
-                    "Cookie": "_gcl_au=1.1.1229956954.1629231989; _ga=GA1.3.1720646543.1629231990; empresa=treinamento; JSESSIONID=FE2D732C6593D6EA37FB1889DB85FCE7; S-NAP=S4eCwSTSJ039jVh3i2sZY0X8VsmF3gNiCPlmQV90kzw=; S-ULO=k/JqA5mjqy4MkH/r8G7feA==; S-PTO=yF7Rmq5KxEAPj06VmrjS+g==; S-CMP=ZcZEoh/LWEZB8udh3AsZ7L6RO0oEPgCG; S-PELO=VxHiIP0Pc4npyYgIk+VIwA==; S-PETO=Xzm0DvNJa3tvK4dPKq8BdKNrO/oIRsMK7Fi8XWWTJ0z77v5KH4Ttgw==; poseidon_expandeditems=menuform-ordem-servico-mobile:menu-recebido",
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36"    
+        function stop() {
+            message = JSON.stringify({
+                "onSent": "onSent", "onError": "OnErrorSending", "onCalback": "onStop",
+                "sendParameter": {
+                    "url": "https://treinamento.sults.com.br/ordem-servico/interacao/audio", "method": "POST",
+                    "header":
+                    {
+                        "Param-OrdemServicoInteracao-Id": "829",
+                        "Cookie": "_gcl_au=1.1.1229956954.1629231989; _ga=GA1.3.1720646543.1629231990; empresa=treinamento; JSESSIONID=FE2D732C6593D6EA37FB1889DB85FCE7; S-NAP=S4eCwSTSJ039jVh3i2sZY0X8VsmF3gNiCPlmQV90kzw=; S-ULO=k/JqA5mjqy4MkH/r8G7feA==; S-PTO=yF7Rmq5KxEAPj06VmrjS+g==; S-CMP=ZcZEoh/LWEZB8udh3AsZ7L6RO0oEPgCG; S-PELO=VxHiIP0Pc4npyYgIk+VIwA==; S-PETO=Xzm0DvNJa3tvK4dPKq8BdKNrO/oIRsMK7Fi8XWWTJ0z77v5KH4Ttgw==; poseidon_expandeditems=menuform-ordem-servico-mobile:menu-recebido",
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36"
+                    }
                 }
-            }})
+            })
             StopAudioRecordJS.postMessage(message);
 
             // document.getElementById("play").style.display = 'inline-block';
             // document.getElementById("stop").style.display = none;
         }
-        function onStop(isStop){
+        function onStop(isStop) {
             console.log("Is Stop=>  " + isStop)
         }
-        function onSent(isSent){
+        function onSent(isSent) {
             console.log("Is Sent=>  " + isSent)
         }
-        function OnErrorSending(errorMessage){
+        function OnErrorSending(errorMessage) {
             console.log("OnErrorSending=>  " + errorMessage)
         }
         /******Ping Pong Stop Record******/
-        
-        
+
+
         /******Ping Pong Cancel Record******/
-        function cancel(){
-            message = JSON.stringify({"onError": "OnErrorCancel", "onCalback": "onCancel"})
+        function cancel() {
+            message = JSON.stringify({ "onError": "OnErrorCancel", "onCalback": "onCancel" })
             CancelAudioRecordJS.postMessage(message);
         }
-        function onCancel(isCancel){
+        function onCancel(isCancel) {
             console.log("Is Cancel=>  " + isCancel)
         }
-        function OnErrorCancel(errorMessage){
+        function OnErrorCancel(errorMessage) {
             console.log("OnErrorCancel=>  " + errorMessage)
         }
         /******Ping Pong Cancel Record******/
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         /*****Funções JS teste para chamar o Flutter*****/
 
@@ -191,20 +194,31 @@
             console.log(base64String);
 
             document.getElementById('contentBase64').textContent = base64String;
+
+            var soundFile = document.createElement("audio");
+            soundFile.preload = "auto";
+
+            //Load the sound file (using a source element for expandability)
+            var src = document.createElement("source");
+            src.src = audioBase64;
+            soundFile.appendChild(src);
+
+            soundFile.load();
+            soundFile.play();
         }
 
-        
-        
+
+
 
         /*****Funções chamadas pelo Flutter*****/
 
         //função chamada pelo Flutter pra saber se ainda esta na pagina de gravar
-        function isActiveWebViewFromFlutter(){
+        function isActiveWebViewFromFlutter() {
             return "Yes! I'm active."
         }
 
         //função chamada pelo Flutter quando da algun erro na gravação
-        function onErrorFromFlutter(errorMessage){
+        function onErrorFromFlutter(errorMessage) {
             console.log(errorMessage);
         }
 
@@ -216,12 +230,12 @@
             divNova.innerHTML = value;
             div1.appendChild(divNova);
         }
-        
+
         //função chamada pelo Flutter para retornar status da gravação
-        function onRecivedStatusRecording(statusRecording){
+        function onRecivedStatusRecording(statusRecording) {
             console.log(statusRecording)
         }
-       
+
     </script>
 </body>
 
