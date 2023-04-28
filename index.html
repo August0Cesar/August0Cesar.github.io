@@ -64,6 +64,10 @@
                 </span>
             </div>
         </div>
+
+        <div id="contentBase64" style="width: 450px;height: auto;">
+            
+        </div>
     </div>
 
     <div class="container" style="background-color: skyblue;">
@@ -181,6 +185,12 @@
 
         function print() {
             Print.postMessage('Hello World being called from Javascript code');
+        }
+
+        function printBase64Audio(base64String) {
+            console.log(base64String);
+
+            document.getElementById('contentBase64').textContent = base64String;
         }
 
         
