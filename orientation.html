@@ -19,38 +19,19 @@
 </head>
 <body>
     <div id="status">Waiting for orientation...</div>
-    <div onclick="request()">request</div>
 
-    <script>       
-
-        // async function request(){
-
-        //     if(window.DeviceOrientationEvent && DeviceOrientationEvent.requestPermission !== undefined) {
-        //         const permissionState = await DeviceOrientationEvent.requestPermission();
-        //         console.log(permissionState);
-            
-        //         if (permissionState === "granted") {
-        //             console.log("granted");
-        //         } else {
-        //             console.log("not granted");
-        //         }
-        //     }
-        // }
-
+    <script>
         function detectOrientation(event) {
             const beta = event.beta;   // Inclinação para frente e para trás
             const gamma = event.gamma; // Inclinação lateral
 
             let orientation;
 
-            console.log(`executando .....1`);
             if (Math.abs(gamma) > 45) {
                 orientation = "Landscape";
             } else {
                 orientation = "Portrait";
             }
-
-            console.log(`executando ${orientation}.....2`);
 
             document.getElementById("status").textContent = 
                 `Orientation: ${orientation} (beta: ${beta.toFixed(2)}°, gamma: ${gamma.toFixed(2)}°)`;
@@ -62,7 +43,6 @@
             document.getElementById("status").textContent = 
                 "Device orientation not supported";
         }
-        
     </script>
 </body>
 </html>
