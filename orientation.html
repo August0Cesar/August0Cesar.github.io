@@ -35,15 +35,14 @@
                     console.log("not granted");
                 }
             }
-
-            if (window.DeviceOrientationEvent) {
-                window.addEventListener("deviceorientation", detectOrientation);
-            } else {
-                document.getElementById("status").textContent = 
-                    "Device orientation not supported";
-            }
         }
 
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener("deviceorientation", detectOrientation);
+        } else {
+            document.getElementById("status").textContent = 
+                "Device orientation not supported";
+        }
         
         function detectOrientation(event) {
             const beta = event.beta;   // Inclinação para frente e para trás
