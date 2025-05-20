@@ -33,6 +33,8 @@
                 orientation = "Portrait";
             }
 
+            console.log(`executando ${orientation}.....`);
+            
             document.getElementById("status").textContent = 
                 `Orientation: ${orientation} (beta: ${beta.toFixed(2)}°, gamma: ${gamma.toFixed(2)}°)`;
         }
