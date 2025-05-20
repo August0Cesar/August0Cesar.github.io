@@ -37,22 +37,29 @@
                 `Orientation: ${orientation} (beta: ${beta.toFixed(2)}°, gamma: ${gamma.toFixed(2)}°)`;
         }
 
-        if (DeviceOrientationEvent && typeof(DeviceOrientationEvent.requestPermission) === "function") {
+        (async () =>{
+            
             const permissionState = await DeviceOrientationEvent.requestPermission();
+            console.log(permissionState);
         
             if (permissionState === "granted") {
                 console.log("granted");
             } else {
                 console.log("not granted");
             }
-        }
 
-        if (window.DeviceOrientationEvent) {
-            window.addEventListener("deviceorientation", detectOrientation);
-        } else {
-            document.getElementById("status").textContent = 
-                "Device orientation not supported";
-        }
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener("deviceorientation", detectOrientation);
+            } else {
+                document.getElementById("status").textContent = 
+                    "Device orientation not supported";
+            }
+            
+        })();
+
+      
+
+        
     </script>
 </body>
 </html>
