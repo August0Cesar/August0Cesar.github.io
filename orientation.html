@@ -20,7 +20,7 @@
 <body>
     <div id="status">Waiting for orientation...</div>
 
-    <script>
+    <script>       
         function detectOrientation(event) {
             const beta = event.beta;   // Inclinação para frente e para trás
             const gamma = event.gamma; // Inclinação lateral
@@ -35,6 +35,16 @@
 
             document.getElementById("status").textContent = 
                 `Orientation: ${orientation} (beta: ${beta.toFixed(2)}°, gamma: ${gamma.toFixed(2)}°)`;
+        }
+
+        if (DeviceOrientationEvent && typeof(DeviceOrientationEvent.requestPermission) === "function") {
+            const permissionState = await DeviceOrientationEvent.requestPermission();
+        
+            if (permissionState === "granted") {
+                console.log("granted");
+            } else {
+                console.log("not granted");
+            }
         }
 
         if (window.DeviceOrientationEvent) {
