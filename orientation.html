@@ -23,19 +23,19 @@
 
     <script>       
 
-        async function request(){
+        // async function request(){
 
-            if(window.DeviceOrientationEvent && DeviceOrientationEvent.requestPermission !== undefined) {
-                const permissionState = await DeviceOrientationEvent.requestPermission();
-                console.log(permissionState);
+        //     if(window.DeviceOrientationEvent && DeviceOrientationEvent.requestPermission !== undefined) {
+        //         const permissionState = await DeviceOrientationEvent.requestPermission();
+        //         console.log(permissionState);
             
-                if (permissionState === "granted") {
-                    console.log("granted");
-                } else {
-                    console.log("not granted");
-                }
-            }
-        }
+        //         if (permissionState === "granted") {
+        //             console.log("granted");
+        //         } else {
+        //             console.log("not granted");
+        //         }
+        //     }
+        // }
 
         function detectOrientation(event) {
             const beta = event.beta;   // Inclinação para frente e para trás
@@ -43,11 +43,14 @@
 
             let orientation;
 
+            console.log(`executando .....1`);
             if (Math.abs(gamma) > 45) {
                 orientation = "Landscape";
             } else {
                 orientation = "Portrait";
             }
+
+            console.log(`executando ${orientation}.....2`);
 
             document.getElementById("status").textContent = 
                 `Orientation: ${orientation} (beta: ${beta.toFixed(2)}°, gamma: ${gamma.toFixed(2)}°)`;
