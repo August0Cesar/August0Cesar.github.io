@@ -24,13 +24,16 @@
     <script>       
 
         async function request(){
-            const permissionState = await DeviceOrientationEvent.requestPermission();
-            console.log(permissionState);
-        
-            if (permissionState === "granted") {
-                console.log("granted");
-            } else {
-                console.log("not granted");
+
+            if(window.DeviceOrientationEvent && typeOf DeviceOrientationEvent.requestPermission === 'function') {
+                const permissionState = await DeviceOrientationEvent.requestPermission();
+                console.log(permissionState);
+            
+                if (permissionState === "granted") {
+                    console.log("granted");
+                } else {
+                    console.log("not granted");
+                }
             }
 
             if (window.DeviceOrientationEvent) {
@@ -57,8 +60,6 @@
             document.getElementById("status").textContent = 
                 `Orientation: ${orientation} (beta: ${beta.toFixed(2)}°, gamma: ${gamma.toFixed(2)}°)`;
         }
-      
-
         
     </script>
 </body>
