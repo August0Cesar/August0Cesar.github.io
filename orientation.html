@@ -25,7 +25,8 @@
 
         async function request(){
 
-            if(window.DeviceOrientationEvent && typeOf DeviceOrientationEvent.requestPermission === 'function') {
+            if(window.DeviceOrientationEvent && DeviceOrientationEvent.requestPermission !== undefined
+               && typeOf DeviceOrientationEvent.requestPermission === 'function') {
                 const permissionState = await DeviceOrientationEvent.requestPermission();
                 console.log(permissionState);
             
