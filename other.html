@@ -46,10 +46,21 @@
         
         function detectOrientation(event) {
             let motionInX = event.accelerationIncludingGravity.x;
-            document.getElementById("status").textContent = 
-                `Orientation: ${motionInX}`;
+            // document.getElementById("status").textContent = 
+                // `Orientation: ${motionInX}`;
 
-            // let orientation;
+            let orientation;
+
+            if (parseInt(motionInX) < 7 && parseInt(motionInX) > -7) {
+                orientation = "Landscape";
+            } else if(parseInt(motionInX) < -7){
+                orientation = "Landscape_Rigth";
+            }else if(parseInt(motionInX) > 7){
+                orientation = "Landscape_Left";
+            }
+            else {
+                orientation = "Portrait";
+            }
 
             // console.log(`executando .....`);
 
@@ -61,8 +72,8 @@
 
             // console.log(`executando ${orientation}........`);
 
-            // document.getElementById("status").textContent = 
-            //     `Orientation: ${orientation} (beta: ${beta.toFixed(2)}°, gamma: ${gamma.toFixed(2)}°)`;
+            document.getElementById("status").textContent = 
+                `Orientation: ${orientation} (beta: ${beta.toFixed(2)}°, gamma: ${gamma.toFixed(2)}°)`;
         }
         
     </script>
