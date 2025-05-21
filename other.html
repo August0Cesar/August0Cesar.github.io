@@ -1,56 +1,70 @@
 <!DOCTYPE html>
-
-<html lang="pt-br">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Other page</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-</head>
-
-<body>
-
-    <div class="container">
-
-
-        <br><br>
-        <br>
-
-
-        <h1><a href="index.html"> <span class="material-icons" style="font-size: 34px;">
-                    arrow_back
-                </span></a>
-            Voltar tela principal
-
-            <br />
-
-            <br />
-            <!-- <audio controls="controls" autobuffer="autobuffer" autoplay="autoplay" id="audio">
-                <source id="sourcePlayer"
-                    src="" />
-            </audio> -->
-            <button onclick="play_recorder()">Play Audio</button>
-        </h1>
-    </div>
-
-    <script>
-        var audioBase64 = "data:audio/mp3;base64,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";
-
-        function play_recorder() {
-
-            var audio = document.getElementById('audio');
-            var sourceAudio = document.getElementById('sourcePlayer');
-            
-            sourceAudio.src = audioBase64;
-
-            audio.load();
-            audio.play();
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Orientation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
         }
+        #status {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="status">Waiting for orientation...</div>
+    <div onclick="request()">request</div>
+
+    <script>       
+
+        async function request(){
+
+            if(window.DeviceMotionEvent && DeviceMotionEvent.requestPermission !== undefined) {
+                const permissionState = await DeviceMotionEvent.requestPermission();
+                console.log(permissionState);
+            
+                if (permissionState === "granted") {
+                    console.log("granted");
+                } else {
+                    console.log("not granted");
+                }
+            }
+        }
+
+        if (window.DeviceMotionEvent) {
+            window.addEventListener("devicemotion", detectOrientation);
+        } else {
+            document.getElementById("status").textContent = 
+                "Device orientation not supported";
+        }
+        
+        function detectOrientation(event) {
+            let motionInX = event.accelerationIncludingGravity.x;
+            document.getElementById("status").textContent = 
+                `Orientation: ${motionInX}`;
+
+            // let orientation;
+
+            // console.log(`executando .....`);
+
+            // if (Math.abs(gamma) > 45) {
+            //     orientation = "Landscape";
+            // } else {
+            //     orientation = "Portrait";
+            // }
+
+            // console.log(`executando ${orientation}........`);
+
+            // document.getElementById("status").textContent = 
+            //     `Orientation: ${orientation} (beta: ${beta.toFixed(2)}°, gamma: ${gamma.toFixed(2)}°)`;
+        }
+        
     </script>
-
-
 </body>
-
 </html>
